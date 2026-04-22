@@ -21,6 +21,7 @@ public abstract class PersonajeBase implements Personaje {
         nivel++;
     }
 
+    @Override
      public String getNombre() {
         return nombre;
     }
@@ -32,5 +33,12 @@ public abstract class PersonajeBase implements Personaje {
     public void mostrar() {
         System.out.println("Nombre: " + nombre + ", Nivel: " + nivel + ", Armas: " + armas);
     }    
+    @Override
+    public abstract Personaje clonar();//PROTOTYPE
+    @Override
+    public void setNombre(String n)//PROTOTYPE
+    {
+        this.nombre=n;
+    }
 
 }

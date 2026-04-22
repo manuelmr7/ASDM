@@ -43,8 +43,8 @@ public class Práctica_2025_26 {
 
         
             System.out.println("\nMenú Principal:");
-            System.out.println("1. Crear personaje(Factory Method)");
-            System.out.println("2. Clonar personaje(futura)");
+            System.out.println("1. Crear personaje (Factory Method)");
+            System.out.println("2. Clonar personaje (Prototype)");
             System.out.println("3. Subir nivel de personaje (futura)");
             System.out.println("4. Listar personajes(futura)");
             System.out.println("5. Añade armas a personaje(futura)");
@@ -124,6 +124,47 @@ public class Práctica_2025_26 {
                             + "y se añadirá a la lista");
                     System.out.println("Presiona para continuar");
                     scanner2.nextLine();
+                    System.out.println("-- CLONADO DE PERSONAJE CON PROTOTYPE --");
+                    List<Personaje> listaPersonajes=personajes.getPersonajes();
+                    if(listaPersonajes.isEmpty())
+                    {
+                        System.out.println("No hay personajes disponibles para clonar...");
+                    }
+                    else
+                    {
+                        System.out.println("Elija el personaje que desea clonar");
+                        for (int i = 0; i < listaPersonajes.size(); i++) {
+                            System.out.println(i+". ");
+                            listaPersonajes.get(i).mostrar();
+                        }
+                        System.out.println("Su elección es: ");
+                        int numClon=scanner.nextInt();
+                        scanner.nextLine();
+                        
+                        if(numClon>=0 && numClon<listaPersonajes.size())
+                        {
+                            Personaje original=listaPersonajes.get(numClon);
+                            for (int i = 0; i < 20; i++) {
+                                //APLICO PROTOTYPE
+                                Personaje clonado=original.clonar();
+                                
+                                //Genero un nombre distinto para cada uno de los 20 clones
+                                String nuevoNombre=original.getNombre()+" (Clon "+(i+1)+")";
+                                clonado.setNombre(nuevoNombre);
+                                
+                                //Guardo el clon en el array
+                                personajes.agregar(clonado);
+                                
+                            }
+                            System.out.println("Presiona para continuar");
+                            scanner2.nextLine();
+                        }
+                        else
+                        {
+                            System.out.println("ERROR: Índice incorrecto");
+                        }
+                    }
+                    
                     break;
                 
                 case 3:

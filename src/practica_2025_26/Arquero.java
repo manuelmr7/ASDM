@@ -9,4 +9,13 @@ public class Arquero extends PersonajeBase {
         this.puntería=punteria;
         this.tipo="Arquero";
     }
+    @Override
+    public Personaje clonar()//PROTOTYPE
+    {
+        Arquero prototipo=new Arquero(this.nombre,this.puntería);
+        prototipo.nivel=this.nivel;
+        prototipo.armas=this.armas;
+        prototipo.precio=this.precio;
+        return prototipo; 
+    }
 }

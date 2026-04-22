@@ -9,4 +9,15 @@ public class Guerrero extends PersonajeBase {
         this.fuerza=fuerza;
         this.tipo="Guerrero";
     }
+    @Override
+    public Personaje clonar()//PROTOTYPE
+    {
+        Guerrero prototipo=new Guerrero(this.nombre,this.fuerza);
+        prototipo.nivel=this.nivel;
+        prototipo.armas=this.armas;
+        prototipo.precio=this.precio;
+        return prototipo; 
+    }
+
+    
 }

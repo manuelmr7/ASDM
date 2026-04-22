@@ -22,8 +22,12 @@ public class Agregado_Personajes implements I_Agregado_Personajes{
         @Override
         public void agregar(Personaje personaje) {
             personajes.add(personaje);
-            System.out.println("-> Personaje guardado en la lista. Total actual: "+personajes.size()); //AGREGADO PARA CONFIRMARLA CORRECTA 
-                                                                                                        //INSERCIÓN DE UN NUEVO PERSONAJE EN EL ARRAY
+            System.out.println("-> Personaje guardado en la lista. Total actual: "+(personajes.size()-1)); //AGREGADO PARA CONFIRMAR LA CORRECTA 
+                                                                                                           //INSERCIÓN DE UN NUEVO PERSONAJE EN EL ARRAY
+        }
+        @Override
+        public java.util.List<Personaje> getPersonajes() {//AGREGADO PARA QUE EN CASE 2 MUESTRE LA LISTA DE PERSONAJES Y DECIDA CUÁL CLONAR
+        return personajes;
         }
     
 }
