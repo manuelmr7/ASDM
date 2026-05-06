@@ -45,7 +45,7 @@ public class Práctica_2025_26 {
             System.out.println("\nMenú Principal:");
             System.out.println("1. Crear personaje (Factory Method)");
             System.out.println("2. Clonar personaje (Prototype)");
-            System.out.println("3. Subir nivel de personaje (futura)");
+            System.out.println("3. Crear ejércitos (Composite)");
             System.out.println("4. Listar personajes(futura)");
             System.out.println("5. Añade armas a personaje(futura)");
             
@@ -59,11 +59,11 @@ public class Práctica_2025_26 {
             
             switch (opcion) {
                 case 1:
-                    System.out.println("Crearemos un personaje de uno de los tipos posibles (Guerrero, Mago, Arquero)");
+                    /*System.out.println("Crearemos un personaje de uno de los tipos posibles (Guerrero, Mago, Arquero)");
                     System.out.println("Y lo añadiremos a una lista que hemos declarado en la main y "
                             + " que se llama personajes\n"
                             + "Será necesario darle valores a los atributos del personaje en cuestión (como nombre y nivel).\n"
-                            + "El personaje creado se debe añadir a la lista global personajes");
+                            + "El personaje creado se debe añadir a la lista global personajes");*/
                     System.out.println("-- CREACIÓN DE PERSONAJE FACTORY METHOD --");
                     System.out.println("¿Qué tipo de personaje desea crear?");
                     System.out.println("1. Guerrero\n2. Mago\n3. Arquero\n");
@@ -119,10 +119,10 @@ public class Práctica_2025_26 {
                     break;
                 
                 case 2:
-                    System.out.println("Clonaremos un personaje ya creado "
+                    /*System.out.println("Clonaremos un personaje ya creado "
                             + " modificando los datos que sean necesarios "
                             + "y se añadirá a la lista");
-                    System.out.println("Presiona para continuar");
+                    System.out.println("Presiona para continuar");*/
                     scanner2.nextLine();
                     System.out.println("-- CLONADO DE PERSONAJE CON PROTOTYPE --");
                     List<Personaje> listaPersonajes=personajes.getPersonajes();
@@ -168,10 +168,83 @@ public class Práctica_2025_26 {
                     break;
                 
                 case 3:
-                    System.out.println("Subiremos el nivel de uno de los personajes, tendremos que elegir "
-                            + "a uno de los añadidos por vosotros con anterioridad o de los ya existentes"
-                            + " inicialmente");
+                    /*System.out.println("En este apartado vamos a crear ejercitos, un ejercito estará formado por un ´numero de guerreros (en principio solo de guerreros)"
+                            + "\nse valora la posibilidad de crear ejercitos de arqueros o magos.)"
+                            + "\nCada ejercito a su vez puede estar formados por otros ejercitos, por ejemplo, creo un ejercito llamado"
+                            + " \nlos Segundos Hijos (con 4 guerreros) y creo otro llamados los Inmaculados (con 6 guerreros), creo un tercero llamado Casa Daenerys Targaryen"
+                            + "\ny añado por ejemplo 5 guerreros a este último y los dos ejercitos creados con anterioridad, después debo mostrar"
+                            + "el nombre de todos los guerreros que forman el ejercito Casa Daenerys Targaryen"
+                            + "\nSe valora el uso del patrón del case 2");
                     System.out.println("Indicaremos al resto que se ha subido de nivel");
+                    System.out.println("Presiona para continuar");
+                    scanner2.nextLine();*/
+                    
+                    //Prototype para crear guerreros
+                    Personaje guerreroBase=new Guerrero("Guerrero base",10);
+                    int e;
+                    //Creo ejército "Los Segundos Hijos" con 4 guerreros
+                    Ejercito E_SegundosHijos=new Ejercito("Los Segundos Hijos");
+                    for(int i=0;i<4;i++)
+                    {
+                        Personaje g=guerreroBase.clonar();
+                        g.setNombre("Guerrero SH"+(i+1));
+                        E_SegundosHijos.agregarMiembro(g);
+                    }
+                    
+                    //Creo ejército "Los Inmaculados" con 6 guerreros
+                    Ejercito E_Inmaculados=new Ejercito("Los Inmaculados");
+                    for(int i=0;i<6;i++)
+                    {
+                        Personaje g=guerreroBase.clonar();
+                        g.setNombre("Guerrero IN"+(i+1));
+                        E_Inmaculados.agregarMiembro(g);
+                    }
+                    
+                    //Creo "Casa Daenerys Targaryen" con sus unidades (5) y le añado los 2 ejércitos creados anteriormente
+                    Ejercito E_casaDaenerysTargaryen=new Ejercito("Casa Daenerys Targaryen");
+                    for(int i=0;i<5;i++)
+                    {
+                        Personaje g=guerreroBase.clonar();
+                        g.setNombre("Guerrero CDT"+(i+1));
+                        E_casaDaenerysTargaryen.agregarMiembro(g);
+                    }
+                    //Muestro jerarquía
+                    System.out.println("Introduzca ejército a visualizar: ");
+                    System.out.println("1. Los Segundos Hijos\n2. Los Inmaculados\n3. Casa Daenerys Targaryen");
+                    e=scanner.nextInt();
+                    if(e==1)
+                    {
+                        E_SegundosHijos.mostrar();
+                    }
+                    else if(e==2)
+                    {
+                        E_Inmaculados.mostrar();
+                    }
+                    else if(e==3)
+                    {
+                        System.out.println("¿Qué guerreros quiere msotrar?: ");
+                        System.out.println("1. Autóctonos\n2. Todos");
+                        int c;
+                        c=scanner.nextInt();
+                        if(c==1)
+                        {
+                            E_casaDaenerysTargaryen.mostrar();
+                        }
+                        else if(c==2)
+                        {
+                            E_casaDaenerysTargaryen.agregarMiembro(E_SegundosHijos);
+                            E_casaDaenerysTargaryen.agregarMiembro(E_Inmaculados);
+                            E_casaDaenerysTargaryen.mostrar();
+                        }
+                        else
+                        {
+                            System.out.println("ERROR: Eso no es posible...");
+                        }
+                    }
+                    else
+                    {
+                        System.out.println("ERROR: No válido");
+                    }
                     System.out.println("Presiona para continuar");
                     scanner2.nextLine();
                     break;
@@ -198,7 +271,7 @@ public class Práctica_2025_26 {
                     break;
                default:
                     System.out.println("Opción no válida.");
-                    System.out.println("Presina para continuar");
+                    System.out.println("Presiona para continuar");
                     scanner2.nextLine();
             }
         
