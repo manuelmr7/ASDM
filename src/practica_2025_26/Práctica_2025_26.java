@@ -257,13 +257,41 @@ public class Práctica_2025_26 {
                     System.out.println("Presiona para continuar");
                     scanner2.nextLine();
                     break;
-                case 5:    
-                    System.out.println("Se añadirán armas a alguno de "
-                            + "los personajes existentes añadiéndolas "
-                            + "al String armas que tiene cada personaje ");
+                case 5:
+                    System.out.println("Se mostrarán los distintos personajes"
+                            + " se podrían incluir opociones de muestreo, ejemplo solo los "
+                            + "magos o por orden de mayor nivel, etc. "
+                            + "Con un par bastaría. ");
                     System.out.println("Presiona para continuar");
                     scanner2.nextLine();
-                    break;    
+                    System.out.println("-- LISTAR PERSONAJES (ITERATOR) --");
+                    System.out.println("Elije modo de visualización: ");
+                    System.out.println("1. Mostrar todos\n "+ " 2. Solo magos\n" +"3. Ordenador por nivel (Mayor a menor)");
+                    System.out.println("Opción: ");
+                    int modo=scanner.nextInt();
+                    Iterador it;
+                    switch(modo)
+                    {
+                        case 2:
+                            it=personajes.crearIteradorMagos();
+                            break;
+                        case 3:
+                            it=personajes.crearIteradorPorNivel();
+                            break;
+                        default:
+                            it=personajes.crearIterador();
+                            break;
+                            
+                    }
+                    System.out.println("Resultados: ");
+                    while(it.tieneSiguiente())
+                    {
+                        Personaje p=(Personaje) it.siguiente();
+                        p.mostrar();
+                    }
+                    System.out.println("Presiona para continuar");
+                    scanner2.nextLine();
+                    break;   
                 case 6:
                     System.out.println("Saliendo del programa...");
                     System.out.println("Presina para continuar");
