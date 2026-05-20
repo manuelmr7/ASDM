@@ -49,6 +49,24 @@ public class Agregado_Personajes implements I_Agregado_Personajes {
         return new IteradorNivel();
     }
 
+    @Override
+    public void eliminar(Personaje personaje) {
+        if(personajes.remove(personaje))
+        {
+            System.out.println("-> El personaje "+personaje.getNombre()+ " ha muerto.");
+            notificarMuerte(personaje);
+        }
+    }
+
+    @Override
+    public void notificarMuerte(Personaje muerto) {
+        String mensaje= "Nuestro compañero "+muerto.getNombre()+" ha caído en combate";
+        for(Personaje p:personajes)
+        {
+            p.actualizar(mensaje);
+        }
+    }
+
     // --- CLASES INTERNAS (ITERADORES CONCRETOS) ---
 
     // 1. Iterador normal: Recorre todos los personajes

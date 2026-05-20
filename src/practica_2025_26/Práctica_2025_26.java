@@ -260,6 +260,34 @@ public class Práctica_2025_26 {
                     System.out.println("Indicaremos al resto que se ha subido de nivel");
                     System.out.println("Presiona para continuar");
                     scanner2.nextLine();
+                    System.out.println("-- MORIR EN COMBATE (OBSERVER) --");
+                    List<Personaje> listaActual=personajes.getPersonajes();
+                    if(listaActual.isEmpty())
+                    {
+                        System.out.println("No hay personajes vivos en el agregado general.");
+                        
+                    }
+                    else
+                    {
+                        System.out.println("Elige quién muere.");
+                        for (int i = 0; i < listaActual.size(); i++) {
+                            System.out.println(i+". "+listaActual.get(i).getNombre());
+                            
+                        }
+                        System.out.println("Introduce el número: ");
+                        int victima=scanner.nextInt();
+                        scanner.nextLine();
+                        if(victima>=0 && victima < listaActual.size())
+                        {
+                            Personaje muerto=listaActual.get(victima);
+                            //Al llamar a eliminar, Observer notifica al resto
+                            personajes.eliminar(muerto);
+                        }
+                        else
+                        {
+                            System.out.println("Error: Índice incorrecto");
+                        }
+                    }
                     break;
 
                 case 5:

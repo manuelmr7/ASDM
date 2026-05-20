@@ -11,4 +11,6 @@ public interface I_Agregado_Personajes {
     Iterador crearIteradorMagos(); //Iterador para magos
     Iterador crearIteradorPorNivel(); //Iterador para ordenar por nivel
     
+    void eliminar(Personaje personaje); //OBSERVER
+    void notificarMuerte(Personaje muerto); //OBSERVER
 }

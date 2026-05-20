@@ -58,5 +58,15 @@ public class Ejercito implements Personaje{ //PATRÓN COMPOSITE. Interfaz Person
     public void setNombre(String nombre) {
         this.nombre=nombre;
     }
+
+    @Override
+    public void actualizar(String mensaje) {
+        System.out.println("El ejército "+nombre+" ha recibido un aviso. "
+                + "Notificando a las tropas...");
+        for(Personaje p:miembros)
+        {
+            p.actualizar(mensaje);
+        }
+    }
     
 }

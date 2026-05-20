@@ -40,5 +40,9 @@ public abstract class PersonajeBase implements Personaje {
     {
         this.nombre=n;
     }
-
+    @Override
+    public void actualizar(String mensaje)
+    {
+        System.out.println("[ "+this.nombre + " se entera]: "+mensaje);
+    }
 }

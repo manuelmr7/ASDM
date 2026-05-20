@@ -5,5 +5,6 @@ public interface Personaje {
     Personaje clonar(); //PROTOTYPE
     void mostrar();
     String getNombre(); //PROTOTYPE
-    void setNombre(String nombre); //PROTOTYPE
+    void setNombre(String nombre); //PROTOTYPE    
+    void actualizar(String mensaje); //OBSERVER
 }
