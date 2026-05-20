@@ -325,6 +325,28 @@ public class Práctica_2025_26 {
                             + "funcionalidades de nuestro juego. ");
                     System.out.println("Presiona para continuar");
                     scanner2.nextLine();
+                    System.out.println("-- INTERFAZ (FACADE) --");
+                    Fachada fachada=new Fachada();
+                    System.out.println("Nombre del ejército: ");
+                    String nombreEjercito=scanner.nextLine();
+                    scanner.nextLine();
+                    System.out.println("Tipo de tropa\n"
+                            + "1. Guerrero\n"
+                            + "2. Mago\n"
+                            + "3. Arquero\n");
+                    int tipoTropa=scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Nombre genérico de la tropa: ");
+                    String nombreTropa=scanner.nextLine();
+                    System.out.println("Atributo especial (fuerza/magia/puntería): ");
+                    atributoEspecial=scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("¿Cuántas tropas deseas crear?");
+                    int numeroTropas=scanner.nextInt();
+                    scanner.nextLine();
+                    fachada.mostrarDatos(nombreEjercito, tipoTropa, nombreTropa, atributoEspecial, numeroTropas);
+                    System.out.println("Presiona para continuar");
+                    scanner.nextLine();
                     break; 
                 case 7:
                     System.out.println("Saliendo del programa...");
