@@ -320,9 +320,9 @@ public class Práctica_2025_26 {
                     scanner2.nextLine();
                     break;   
                 case 6:
-                    System.out.println("Se añadirán armas a alguno de "
-                            + "los personajes existentes añadiéndolas "
-                            + "al String armas que tiene cada personaje ");
+                    System.out.println("Crear una interfaz simple y "
+                            + "unificada para acceder al conjunto de "
+                            + "funcionalidades de nuestro juego. ");
                     System.out.println("Presiona para continuar");
                     scanner2.nextLine();
                     break; 
