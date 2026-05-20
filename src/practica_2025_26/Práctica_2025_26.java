@@ -250,7 +250,7 @@ public class Práctica_2025_26 {
                     break;
                 
                 case 4:
-                    System.out.println("Práctica Observer, Vamos a simular que un personaje "
+                    /*System.out.println("Práctica Observer, Vamos a simular que un personaje "
                             + "(Guerrero, Mago o Arquero muere en combate, con lo cual debemos "
                             + "eliminarlo de la lista de personajes. Debemos a continuación indicar, "
                             + "comunicar al resto de  los personajes que dicho personaje ha fallecido "
@@ -259,7 +259,7 @@ public class Práctica_2025_26 {
                             + "necesario añadir clases extras a las ya creadas, solo modificar las existentes.  ");
                     System.out.println("Indicaremos al resto que se ha subido de nivel");
                     System.out.println("Presiona para continuar");
-                    scanner2.nextLine();
+                    scanner2.nextLine();*/
                     System.out.println("-- MORIR EN COMBATE (OBSERVER) --");
                     List<Personaje> listaActual=personajes.getPersonajes();
                     if(listaActual.isEmpty())
