@@ -46,10 +46,10 @@ public class Práctica_2025_26 {
             System.out.println("1. Crear personaje (Factory Method)");
             System.out.println("2. Clonar personaje (Prototype)");
             System.out.println("3. Crear ejércitos (Composite)");
-            System.out.println("4. Listar personajes(futura)");
-            System.out.println("5. Añade armas a personaje(futura)");
-            
-            System.out.println("6. Salir");
+            System.out.println("4. Morir en combate (Observer)");
+            System.out.println("5. Listar personajes(Iterator)");
+            System.out.println("6. Case final (Facade)");
+            System.out.println("7. Salir");
             System.out.print("Elige una opción: ");
             opcion=scanner.nextInt();
             
@@ -250,23 +250,22 @@ public class Práctica_2025_26 {
                     break;
                 
                 case 4:
-                    System.out.println("Se mostrarán los distintos personajes"
-                            + " se podrían incluir opociones de muestreo, ejemplo solo los "
-                            + "magos o por orden de mayor nivel, etc. "
-                            + "Con un par bastaría. ");
+                    System.out.println("Práctica Observer, Vamos a simular que un personaje "
+                            + "(Guerrero, Mago o Arquero muere en combate, con lo cual debemos "
+                            + "eliminarlo de la lista de personajes. Debemos a continuación indicar, "
+                            + "comunicar al resto de  los personajes que dicho personaje ha fallecido "
+                            + "en combate. Como extra se puede hacer la modificación de comunicar únicamente "
+                            + "a los integrantes del ejercito al que pertenecía Como pista indicar que no es "
+                            + "necesario añadir clases extras a las ya creadas, solo modificar las existentes.  ");
+                    System.out.println("Indicaremos al resto que se ha subido de nivel");
                     System.out.println("Presiona para continuar");
                     scanner2.nextLine();
                     break;
+
                 case 5:
-                    System.out.println("Se mostrarán los distintos personajes"
-                            + " se podrían incluir opociones de muestreo, ejemplo solo los "
-                            + "magos o por orden de mayor nivel, etc. "
-                            + "Con un par bastaría. ");
-                    System.out.println("Presiona para continuar");
-                    scanner2.nextLine();
                     System.out.println("-- LISTAR PERSONAJES (ITERATOR) --");
                     System.out.println("Elije modo de visualización: ");
-                    System.out.println("1. Mostrar todos\n "+ " 2. Solo magos\n" +"3. Ordenador por nivel (Mayor a menor)");
+                    System.out.println("1. Mostrar todos\n"+ "2. Solo magos\n" +"3. Ordenador por nivel (Mayor a menor)");
                     System.out.println("Opción: ");
                     int modo=scanner.nextInt();
                     Iterador it;
@@ -293,8 +292,15 @@ public class Práctica_2025_26 {
                     scanner2.nextLine();
                     break;   
                 case 6:
+                    System.out.println("Se añadirán armas a alguno de "
+                            + "los personajes existentes añadiéndolas "
+                            + "al String armas que tiene cada personaje ");
+                    System.out.println("Presiona para continuar");
+                    scanner2.nextLine();
+                    break; 
+                case 7:
                     System.out.println("Saliendo del programa...");
-                    System.out.println("Presina para continuar");
+                    System.out.println("Presiona para continuar");
                     scanner2.nextLine();
                     break;
                default:
@@ -303,7 +309,7 @@ public class Práctica_2025_26 {
                     scanner2.nextLine();
             }
         
-        }while(opcion!=6);
+        }while(opcion!=7);
    }
     
 }

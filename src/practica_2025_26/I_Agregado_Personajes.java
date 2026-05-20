@@ -9,6 +9,6 @@ public interface I_Agregado_Personajes {
     //Modificación patrón iterator
     Iterador crearIterador();  //Iterador normal (todos)
     Iterador crearIteradorMagos(); //Iterador para magos
-    Iterador crearIteradorPorNivel();
+    Iterador crearIteradorPorNivel(); //Iterador para ordenar por nivel
     
 }

@@ -51,7 +51,7 @@ public class Agregado_Personajes implements I_Agregado_Personajes {
 
     // --- CLASES INTERNAS (ITERADORES CONCRETOS) ---
 
-    // 1. Iterador normal: Recorre todos los personajes [cite: 332]
+    // 1. Iterador normal: Recorre todos los personajes
     private class IteradorConcreto implements Iterador {
         private int posicion = 0;
 
@@ -66,7 +66,7 @@ public class Agregado_Personajes implements I_Agregado_Personajes {
         }
     }
 
-    // 2. Iterador filtrado: Solo muestra Magos [cite: 32]
+    // 2. Iterador filtrado: Solo muestra Magos
     private class IteradorMagos implements Iterador {
         private int posicion = 0;
 
@@ -87,7 +87,7 @@ public class Agregado_Personajes implements I_Agregado_Personajes {
         }
     }
 
-    // 3. Iterador ordenado: Muestra personajes por nivel (de mayor a menor) [cite: 32]
+    // 3. Iterador ordenado: Muestra personajes por nivel (de mayor a menor)
     private class IteradorNivel implements Iterador {
         private List<Personaje> listaOrdenada;
         private int posicion = 0;
